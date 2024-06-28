@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -35,4 +35,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#graph-page{
+  display:flex;
+  gap: 1rem;
+  height: 100%;
+  padding: 1%;
+}
+
+#desktop-nav{
+  padding: 1%;
 }
