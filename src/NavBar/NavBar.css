@@ -1,0 +1,26 @@
+#desktop-nav-ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    
+}
+
+
+#desktop-nav{
+    display: grid;
+    object-fit: contain;
+    grid-column: 0px;
+    grid-row-gap: 16px;
+    align-items: center;
+    background-color: #005493;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    color: white;
+
+}
+
+a{
+    color: white;
+}

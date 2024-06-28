@@ -1,0 +1,32 @@
+#search-and-list{
+    height: 100%;
+    width: 30%;
+    border: 4px solid #000000;
+    border-radius: 10px;
+  
+    height: 100%;
+}
+
+#search-combo-div{
+    display:flex;
+
+}
+
+.search-combo-div{
+    width: 100%;
+}
+
+#course-search-form{
+    width: 100%;
+}
+
+
+.course-search-input{
+    width: 100%;
+}
+#course-ul{
+    border: .3rem solid #000000;
+    border-radius: 10px;
+    height: 100%;
+}
+
