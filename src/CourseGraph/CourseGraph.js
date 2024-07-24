@@ -9,6 +9,11 @@ import tidytree from "cytoscape-tidytree";
 import cola from 'cytoscape-cola';
 import spread from 'cytoscape-spread';
 import elk from 'cytoscape-elk';
+// import cytoscape from 'cytoscape';
+import dagre from 'cytoscape-dagre';
+
+cytoscape.use( dagre );
+
 cytoscape.use(elk);
 
 cytoscape.use(spread);
@@ -114,13 +119,7 @@ let myjson = {
         },
         {
             "type": "other",
-            "name": "Pre-Calculus 12",
-            "quantity": "",
-            "sub_maps": null
-        },
-        {
-            "type": "other",
-            "name": "Earn a minimum grade of C in each of the following",
+            "name": "Earn a minimum grade of C in each of the following: MATH120 - Precalculus Mathematics (1.5)",
             "quantity": "",
             "sub_maps": null
         },
@@ -138,7 +137,7 @@ let myjson = {
         },
         {
             "type": "other",
-            "name": "Earn a minimum grade of C+ in each of the following",
+            "name": "Earn a minimum grade of C+ in each of the following: MATH120 - Precalculus Mathematics (1.5)",
             "quantity": "",
             "sub_maps": null
         },
@@ -158,18 +157,6 @@ let myjson = {
             "type": "requirement",
             "name": "Complete",
             "quantity": "Pre-Calculus",
-            "sub_maps": null
-        },
-        {
-            "type": "other",
-            "name": "or permission of the department.",
-            "quantity": "",
-            "sub_maps": null
-        },
-        {
-            "type": "other",
-            "name": "Earn a minimum grade of C+ in each of the following",
-            "quantity": "",
             "sub_maps": null
         }
     ],
@@ -203,12 +190,12 @@ let myjson = {
             "target": 7
         },
         {
-            "source": 10,
-            "target": 15
-        },
-        {
             "source": 2,
             "target": 8
+        },
+        {
+            "source": 12,
+            "target": 18
         },
         {
             "source": 2,
@@ -219,15 +206,7 @@ let myjson = {
             "target": 19
         },
         {
-            "source": 12,
-            "target": 20
-        },
-        {
-            "source": 23,
-            "target": 8
-        },
-        {
-            "source": 15,
+            "source": 17,
             "target": 8
         },
         {
@@ -252,6 +231,14 @@ let myjson = {
         },
         {
             "source": 11,
+            "target": 15
+        },
+        {
+            "source": 13,
+            "target": 17
+        },
+        {
+            "source": 11,
             "target": 16
         },
         {
@@ -259,27 +246,23 @@ let myjson = {
             "target": 17
         },
         {
-            "source": 11,
-            "target": 18
+            "source": 13,
+            "target": 19
         },
         {
             "source": 13,
-            "target": 21
+            "target": 20
         },
         {
-            "source": 13,
-            "target": 22
+            "source": 10,
+            "target": 4
         },
         {
-            "source": 13,
-            "target": 23
-        },
-        {
-            "source": 18,
+            "source": 14,
             "target": 8
         }
     ]
-  }
+}
 
 
 function CourseGraph() {
@@ -372,16 +355,17 @@ function CourseGraph() {
 
     
   // cy.layout().run();
-   cy.layout( {
-//       name: 'breadthfirst',
-//       // name: 'cose-bilkent',
-      name: 'elk',
-//       // name: 'grid',
-//       // name: "klay",
-//       // name: 'tidytree',
+//    cy.layout( {
+//     //   name: 'breadthfirst',
+//     //   name: 'cose-bilkent',
+//     //   name: 'elk',
+// //       // name: 'grid',
+//     //   name: "klay",
+//     //   name: 'tidytree',
 //       name: 'cola',
-//       roots: '#0'
-  }).run();
+//     // name: 'dagre',
+//       roots: '#2'
+//   }).run();
 
 //   var layout = cy.makeLayout({
 //     name: "spread",
@@ -393,13 +377,24 @@ function CourseGraph() {
 
 //   layout.run();
 
-    cy.fit();
-  cy.resize()
-
+    // cy.fit();
+//   cy.resize()
+  
+var options = {
+    name: "tidytree",
+    horizontalSpacing: 150,
+    verticalSpacing: 80,
+    fit: true,
     
+}
+
+// // run layout with the options specified
+cy.layout(options).run()
 
     // return () => cy.destroy();
   }, []);
+
+
 
   return <div ref={graphRef} id="cy" className="cytoscape-container"></div>;
 }
